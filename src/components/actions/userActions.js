@@ -8,7 +8,7 @@ import {
 
 export const postUser = data => async dispatch => {
   console.log(data);
-  let res = await fetch("http://jasonserverhoustonfishing.herokuapp.com/users/signup", {
+  let res = await fetch("https://jasonserverhoustonfishing.herokuapp.com/users/signup", {
     method: "POST",
     headers: {
       accept: "application/json",
@@ -28,7 +28,7 @@ export const postUser = data => async dispatch => {
 };
 export const loginUser = data => async dispatch => {
   console.log(data);
-  let res = await fetch("jasonserverhoustonfishing.herokuapp.com/users/login", {
+  let res = await fetch("https://jasonserverhoustonfishing.herokuapp.com/users/login", {
     method: "POST",
     headers: {
       accept: "application/json",
