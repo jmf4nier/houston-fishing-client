@@ -2,6 +2,10 @@
   "name": "finalproject",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "12.9.1",
+    "node": "6.10.2"
+  },
   "dependencies": {
     "@trendmicro/react-sidenav": "^0.4.5",
     "google-maps-react": "^2.0.2",
