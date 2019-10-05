@@ -35,7 +35,7 @@ class NavBar extends React.Component {
           style={{ backgroundColor: "black" }}
           id="sideNav"
           onSelect={selected => {}}
-          expanded={this.state.expanded}
+          defaultExpanded={this.state.expanded}
           onMouseOver={() => {
             this.setState({ expanded: true });
           }}
