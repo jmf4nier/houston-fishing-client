@@ -1,7 +1,7 @@
 import React from "react";
 import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
-import history from "../../history";
+// import history from "../../history";
 import ClickOutside from "./clickOutside";
 import { showLogin, logoutUser } from "../actions/userActions";
 import { connect } from "react-redux";
