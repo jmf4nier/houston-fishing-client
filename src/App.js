@@ -21,11 +21,7 @@ class App extends React.Component {
       <div className="App">
         {this.props.showLogin ? <Login /> : null}
         {this.props.showSignup ? <SignUp /> : null}
-        {/* <Router history={history}>
-          <NavBar/>
-          <Route exact path='/' component={LakeIndex}/>
-        </Router> */}
-
+        
         <LakeIndex />
       </div>
     );
@@ -41,3 +37,8 @@ export default connect(
   mapStateToProps,
   { fetchLakes }
 )(App);
+
+// {/* <Router history={history}>
+//           <NavBar/>
+//           <Route exact path='/' component={LakeIndex}/>
+//         </Router> */}
