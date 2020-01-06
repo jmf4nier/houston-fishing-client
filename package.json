@@ -7,7 +7,6 @@
     "npm": "6.10.2"
   },
   "dependencies": {
-    "@trendmicro/react-sidenav": "^0.4.5",
     "google-maps-react": "^2.0.2",
     "history": "^4.9.0",
     "install": "^0.13.0",
@@ -24,8 +23,8 @@
     "serve": "^11.2.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
+    "s": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
