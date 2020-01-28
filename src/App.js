@@ -1,18 +1,35 @@
 import React from "react";
-import { Provider } from "react-redux";
-import {store} from './store'
-import LoginPage from "./components/userForms/Login";
-import SignupPage from "./components/userForms/SignUp";
+import NavBar from "./components/navBar/NavBar";
+import { useAuth0 } from "./react-auth0-spa";
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./components/Profile";
+import history from "./utils/history";
+import PrivateRoute from "./components/PrivateRoute";
+import ExternalApi from './components/ExternalApi'
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <div className="App">
-                    <LoginPage/>
-                    <SignupPage/>
-                </div>
-            </Provider>
-        );
-    }
+function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="App">
+      {/* Don't forget to include the history module */}
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          <Route path="/" exact />
+          {/* <Route path="/profile" component={Profile} /> */}
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
+        </Switch>
+      </Router>
+    </div>
+  );
 }
+
+export default App;

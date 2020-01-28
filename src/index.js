@@ -6,8 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
-import Provider from 'react-redux'
-import store from './store'
+import {Provider} from 'react-redux'
+import {store} from './store'
 
 // A function that routes the user to the right place
 // after login
@@ -25,6 +25,7 @@ ReactDOM.render(
     client_id={config.clientId}
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
+    audience={config.audience}
   >
           <Provider store={store}>
                  <App /> 
