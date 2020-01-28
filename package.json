@@ -13,7 +13,6 @@
     "npm": "^6.10.3",
     "react": "^16.9.0",
     "react-dom": "^16.8.6",
-    "react-image-gallery": "^0.9.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
