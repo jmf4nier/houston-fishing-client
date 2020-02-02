@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function LoginPage() {
+export default function Login() {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
