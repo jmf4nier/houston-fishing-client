@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+ 2/2/20 
+1.need to change oAuth login/signup page.  dont really know how it works right now. its seem to have my gmail account logged in by default. not great.  also it has no backout button if i dont want to use a specific account or click decline on the prompt. bad design?  
