@@ -1,5 +1,5 @@
 // src/components/NavBar.js
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import { useAuth0 } from "../../react-auth0-spa";
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -24,7 +24,7 @@ import history from "../../utils/History";
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
-    marginBottom: '1vh'
+    marginBottom: "1vh"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -32,18 +32,18 @@ const useStyles = makeStyles(theme => ({
   logoutLink: {
     margin: 0,
     color: "white",
-    fontSize: '1.5vh'
+    fontSize: "1.5vh"
   },
   loginLink: {
     margin: 0,
     color: "white",
-    fontSize: '1.5vh'
+    fontSize: "1.5vh"
   },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
-      marginLeft: '25%'
+      marginLeft: "25%"
     }
   },
   search: {
@@ -96,6 +96,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function NavBar() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -147,14 +148,13 @@ export default function NavBar() {
         <p>Messages</p>
       </MenuItem>
       <MenuItem
-        
         onClick={() => {
           handleMenuClose();
           history.push("/");
         }}
       >
         <IconButton color="inherit">
-          <HomeIcon titleAccess="Home" style={{ marginBottom: "2vh" }}/>
+          <HomeIcon titleAccess="Home" style={{ marginBottom: "2vh" }} />
         </IconButton>
         <p>Home</p>
       </MenuItem>
@@ -182,17 +182,22 @@ export default function NavBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton aria-label="Logout">
-            <Link className={classes.logoutLink} to={"/"}>
-              Logout
-            </Link>
+          {!isAuthenticated && (
+            <IconButton
+            aria-label="Login"
+            onClick={() => loginWithRedirect({})}
+          >
+            <p className={classes.login}>Login</p>
           </IconButton>
-          <IconButton aria-label="Login">
-            <Link className={classes.loginLink} to={"login"}>
-              Login
-            </Link>
-          </IconButton>
-          
+           
+          )}
+
+          {isAuthenticated && (
+             <IconButton aria-label="Logout" onClick={() => logout()}>
+             <p className={classes.logout}>Logout</p>
+           </IconButton>
+          )}
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -210,28 +215,32 @@ export default function NavBar() {
             Houston Fishing
           </Typography>
           <div className={classes.grow} />
+          {isAuthenticated && (
+            <span>
+              <IconButton
+                aria-label="show 4 new mails"
+                color="inherit"
+                onClick={() => history.push("/messages")}
+              >
+                <Badge badgeContent={4} color="secondary">
+                  <MailIcon titleAccess="Messages" />
+                </Badge>
+              </IconButton>
+
+              <IconButton
+                onClick={() => history.push("/profile")}
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                color="inherit"
+              >
+                <AccountCircle titleAccess="Profile" />
+              </IconButton>
+            </span>
+          )}
           <div className={classes.sectionDesktop}>
             <IconButton color="inherit" onClick={() => history.push("/")}>
               <HomeIcon titleAccess="Home" fontSize="large" />
-            </IconButton>
-            <IconButton
-              aria-label="show 4 new mails"
-              color="inherit"
-              onClick={() => history.push("/messages")}
-            >
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon titleAccess="Messages" />
-              </Badge>
-            </IconButton>
-
-            <IconButton
-              onClick={() => history.push("/profile")}
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              color="inherit"
-            >
-              <AccountCircle titleAccess="Profile" />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
