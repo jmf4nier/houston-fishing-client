@@ -3,9 +3,10 @@ import NavBar from "./components/navBar/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
-import history from "./utils/history";
-import PrivateRoute from "./components/PrivateRoute";
+import history from "./utils/History";
+import PrivateRoute from "./components/routing/PrivateRoute";
 import ExternalApi from './components/ExternalApi'
+import Home from './components/Home'
 
 function App() {
   const { loading } = useAuth0();
@@ -16,13 +17,14 @@ function App() {
 
   return (
     <div className="App">
+      
       {/* Don't forget to include the history module */}
       <Router history={history}>
         <header>
           <NavBar />
         </header>
         <Switch>
-          <Route path="/" exact />
+          <Route path="/" exact component={Home}/>
           {/* <Route path="/profile" component={Profile} /> */}
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
