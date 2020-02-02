@@ -183,12 +183,12 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar>
           <IconButton aria-label="Logout">
-            <Link className={classes.logoutLink} to={"#"}>
+            <Link className={classes.logoutLink} to={"/"}>
               Logout
             </Link>
           </IconButton>
           <IconButton aria-label="Login">
-            <Link className={classes.loginLink} to={"#"}>
+            <Link className={classes.loginLink} to={"login"}>
               Login
             </Link>
           </IconButton>

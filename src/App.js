@@ -7,8 +7,7 @@ import history from "./utils/History";
 import PrivateRoute from "./components/protectedPages/PrivateRoute";
 import ExternalApi from './components/ExternalApi'
 import Home from './components/lakes/LakeHome'
-import Login from './components/userForms/Login'
-import SignUp from './components/userForms/SignUp'
+
 
 function App() {
   const { loading } = useAuth0();
@@ -27,9 +26,7 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path='/signup' exact component={SignUp}/>
-          <Route path='/login' exact component={Login}/>
-          {/* <Route path="/profile" component={Profile} /> */}
+          
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
         </Switch>
