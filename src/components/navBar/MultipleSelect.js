@@ -11,6 +11,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import json2mq from "json2mq";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useDispatch } from "react-redux";
+import { setSpeciesFilter } from "../actions/searchBarActions";
 
 const useStyles = makeStyles(theme => ({
 	formControl: {
@@ -43,38 +45,41 @@ const MenuProps = {
 };
 
 const species = [
-    "largemouth bass",
-    "small mouth bass",
-    "crappie",
-    "bluegill",
-    "yellow catfish",
-    "blue catfish",
-    "carp"
+	"largemouth bass",
+	"smallmouth bass",
+	"crappie",
+	"bluegill",
+	"yellow catfish",
+	"blue catfish",
+	"carp"
 ];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, speciesName, theme) {
 	return {
 		fontWeight:
-			personName.indexOf(name) === -1
+			speciesName.indexOf(name) === -1
 				? theme.typography.fontWeightRegular
 				: theme.typography.fontWeightMedium
 	};
 }
 
 export default function MultipleSelect() {
-    //for changing style to mobile later on based on screen size
-	const matches = useMediaQuery(
-		json2mq({
-			minWidth: 800
-		})
-	);
-
+	//for changing style to mobile later on based on screen size
+	// const matches = useMediaQuery(
+	// 	json2mq({
+	// 		minWidth: 800
+	// 	})
+	// );
+	const dispatch = useDispatch();
 	const classes = useStyles();
 	const theme = useTheme();
-	const [personName, setPersonName] = React.useState([]);
+	const [speciesName, setSpeciesName] = React.useState('');
 
 	const handleChange = event => {
-		setPersonName(event.target.value);
+		let value = event.target.value;
+		console.log(value)
+		setSpeciesFilter(dispatch, value);
+		setSpeciesName(value);
 	};
 
 	const handleChangeMultiple = event => {
@@ -85,17 +90,16 @@ export default function MultipleSelect() {
 				value.push(options[i].value);
 			}
 		}
-		setPersonName(value);
+		setSpeciesName(value);
 	};
 	const desktopView = (
 		<FormControl className={classes.formControl}>
-            
 			<InputLabel id="demo-mutiple-chip-label">Species</InputLabel>
 			<Select
 				labelId="demo-mutiple-chip-label"
 				id="demo-mutiple-chip"
-				multiple
-				value={personName}
+				
+				value={speciesName}
 				onChange={handleChange}
 				input={<Input id="select-multiple-chip" />}
 				renderValue={selected => (
@@ -111,7 +115,7 @@ export default function MultipleSelect() {
 					<MenuItem
 						key={name}
 						value={name}
-						style={getStyles(name, personName, theme)}
+						style={getStyles(name, speciesName, theme)}
 					>
 						{name}
 					</MenuItem>
@@ -127,7 +131,7 @@ export default function MultipleSelect() {
 			<Select
 				multiple
 				native
-				value={personName}
+				value={speciesName}
 				onChange={handleChangeMultiple}
 				inputProps={{
 					id: "select-multiple-native"
@@ -142,5 +146,5 @@ export default function MultipleSelect() {
 		</FormControl>
 	);
 
-	return <div style={{marginRight: -10}}>{desktopView}</div>;
+	return <div style={{ marginRight: -10 }}>{desktopView}</div>;
 }

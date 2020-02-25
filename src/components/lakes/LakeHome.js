@@ -1,29 +1,31 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 
 import LakeCards from "./LakeCards";
 import { Grid } from "@material-ui/core";
 import { fetchLakes } from "../actions/lakeActions";
 import { useDispatch, useSelector } from "react-redux";
 
-const Home =  () => {
+const Home = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		fetchLakes(dispatch);
 	}, [dispatch]);
 	const lakes = useSelector(state => state.lakeReducer.lakes);
 	const search = useSelector(state => state.searchBarReducer.searchParams);
-	const filteredCards = lakes.filter(lake => {
-		const {name, locality} = lake
+	const speciesFilter = useSelector(state => state.searchBarReducer.species)
+	const searchFilteredCards = lakes.filter(lake => {
+		const { name, locality, species } = lake;
+		let lowerCaseSpecies = species
 		let searchTerm = search.toLowerCase();
-		
 		let lowerCaseName = name.toLowerCase();
-		return lowerCaseName.match(searchTerm);
+		if(species.includes())
+		return lowerCaseName.includes(searchTerm);
 	});
-	console.log(filteredCards);
+	
 	return (
 		<div>
 			<Grid container direction="row" justify="center" alignItems="center">
-				{filteredCards.map(lake => {
+				{searchFilteredCards.map(lake => {
 					return <LakeCards key={lake._id} lake={lake} />;
 				})}
 			</Grid>

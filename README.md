@@ -81,3 +81,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 2. added selectbox for species filtering.  not applied yet. not happy with the fit and finish of the chips.
 3. changed the actions for the initial lake fetch and added the searchbar action/reducer. now bringing in action function into component and doing dispatchs outside of component. maybe not fully implemented on all dispatches.....???
 <!-- end 2/23 -->
+<!--start 2/24-->
+1. worked on the select filter a bit.  didnt work cuz i couldnt figure out the array vs array dynamic.  i think just change it to a single select for now.  not worth the headache.  
+2. added action and reducer for holding selected species
+<!--end 2/24-->
