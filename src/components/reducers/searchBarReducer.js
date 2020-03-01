@@ -1,8 +1,9 @@
-import {SET_SEARCH_PARAMS, SET_SPECIES_FILTER} from '../actions/types'
+import {SET_SEARCH_PARAMS, SET_SPECIES_FILTER, SET_LOCATION_FILTER} from '../actions/types'
 
 const initialState = {
     searchParams: '',
-    speciesFilter: ''
+    speciesFilter: '',
+    locationFilter: ''
 }
 
 export default function(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
         return {
           ...state,
           speciesFilter: action.payload
+        };
+        case SET_LOCATION_FILTER:
+        return {
+          ...state,
+          locationFilter: action.payload
         };
       default:
         return state;
