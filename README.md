@@ -85,3 +85,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 1. worked on the select filter a bit.  didnt work cuz i couldnt figure out the array vs array dynamic.  i think just change it to a single select for now.  not worth the headache.  
 2. added action and reducer for holding selected species
 <!--end 2/24-->
+<!-- start 3/1 -->
+1. changed from multiple select to simple select for both species and location sorting
+2. added actions/ reducer for location sort.  
+3. changes to lakeHome to reflect new sorts.
+<!-- end 3/1 -->
