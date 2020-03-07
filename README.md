@@ -90,3 +90,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 2. added actions/ reducer for location sort.  
 3. changes to lakeHome to reflect new sorts.
 <!-- end 3/1 -->
+<!-- start 3/5 -->
+1. added onClick to the favorites icon on the lakeCards.  when clicked it gives a timed message and triggers an action saving the lake to redux under favoritedLakes.  using a weird filter in the reducer to keep duplicates out.  
+*this is temporary until i get the database side going.*
+2. need to track favorited status of a card in redux so that reloads dont re-enable the heart icon once its been pressed.
+<!-- end 3/5 -->
