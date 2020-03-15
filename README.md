@@ -95,3 +95,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 *this is temporary until i get the database side going.*
 2. need to track favorited status of a card in redux so that reloads dont re-enable the heart icon once its been pressed.
 <!-- end 3/5 -->
+ <!-- "scripts": {
+        "start": "serve -s build",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "heroku-postbuild": "npm run build",
+        "dev": "npm-run-all --parallel start server",
+        "server": "node server.js"
+    }, -->
