@@ -3,7 +3,7 @@ import NavBar from "./components/navBar/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/protectedPages/Profile";
-import history from "./utils/History";
+import history from "./History";
 import PrivateRoute from "./components/protectedPages/PrivateRoute";
 import ExternalApi from "./components/ExternalApi";
 import Home from "./components/lakes/LakeHome";

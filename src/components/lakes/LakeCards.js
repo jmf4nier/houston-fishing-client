@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import history from "../../utils/History";
+import history from "../../History";
 // import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 // import CardHeader from "@material-ui/core/CardHeader";

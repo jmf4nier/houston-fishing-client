@@ -19,7 +19,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import SimpleSelect from './SimpleSelect'
 import MoreIcon from "@material-ui/icons/MoreVert";
 import HomeIcon from "@material-ui/icons/Home";
-import history from "../../utils/History";
+import history from "../../History";
 import SearchBar from './SearchBar'
 import { speciesFilter, locationFilter } from "../actions/searchBarActions";
 
