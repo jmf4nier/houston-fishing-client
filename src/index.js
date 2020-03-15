@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
-import history from "./utils/History.js";
+// import history from "./utils/History.js";
 import { Provider } from "react-redux"
 
 import { PersistGate } from 'redux-persist/integration/react'
